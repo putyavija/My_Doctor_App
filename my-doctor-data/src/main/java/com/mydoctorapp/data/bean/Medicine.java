@@ -1,11 +1,11 @@
 package com.mydoctorapp.data.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
@@ -15,7 +15,8 @@ public class Medicine {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name="Medicine_ID")
+	private Integer id;
 	
 	private String medicineName;
 	private String diseaseName;
@@ -70,7 +71,7 @@ public class Medicine {
 	public void setDurationToUse(String durationToUse) {
 		this.durationToUse = durationToUse;
 	}
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 	
