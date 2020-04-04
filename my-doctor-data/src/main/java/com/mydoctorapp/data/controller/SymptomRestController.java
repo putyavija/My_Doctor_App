@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mydoctorapp.data.bean.Disease;
 import com.mydoctorapp.data.bean.Symptom;
 import com.mydoctorapp.data.repository.SymptomRepository;
 
@@ -29,8 +30,18 @@ public class SymptomRestController {
 	}
 	
 	@GetMapping("/query-symptom")
-	public Symptom getsymptom() {
-		return null;
+	public Symptom getSymptom(@RequestParam(required=true,defaultValue="Common Cold") String symptomName) {
+		return symptomRepo.findBySymptomName(symptomName);
+	}
+	
+	@GetMapping("/query-symptom-by-name")
+	public List<Symptom> getSymptomByName(@RequestParam(required=true,defaultValue="Common Cold") String symptomName) {
+			return symptomRepo.findBySymptomNameStartingWith(symptomName);
+	}
+	
+	@GetMapping("/query-symptom-contains-name")
+	public List<Symptom> getSymptomContainsName(@RequestParam(required=true,defaultValue="Common Cold") String symptomName) {
+			return symptomRepo.findBySymptomNameContaining(symptomName);
 	}
 	
 	@GetMapping("/list-symptom/{id}")

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mydoctorapp.data.bean.Disease;
+import com.mydoctorapp.data.bean.Symptom;
 import com.mydoctorapp.data.repository.DiseaseRepository;
 
 @RestController
@@ -29,9 +30,20 @@ public class DiseaseRestController {
 	}
 	
 	@GetMapping("/query-disease")
-	public Disease getDisease() {
-		return null;
+	public Disease getDisease(@RequestParam(required=true,defaultValue="Typhoid Fever") String diseaseName) {
+		return diseaseRepo.findByDiseaseName(diseaseName);
 	}
+	
+	@GetMapping("/query-disease-by-name")
+	public List<Disease> getDiseaseByName(@RequestParam(required=true,defaultValue="Typhoid Fever") String diseaseName) {
+		return diseaseRepo.findByDiseaseNameStartingWith(diseaseName);
+	}
+	
+	@GetMapping("/query-disease-contains-name")
+	public List<Disease> getDiseaseContainsName(@RequestParam(required=true,defaultValue="Common Cold") String diseaseName) {
+			return diseaseRepo.findByDiseaseNameContaining(diseaseName);
+	}
+
 	
 	@GetMapping("/list-disease/{id}")
 	public Optional<Disease> getDiseaseById(@PathVariable("id") Integer id) {
