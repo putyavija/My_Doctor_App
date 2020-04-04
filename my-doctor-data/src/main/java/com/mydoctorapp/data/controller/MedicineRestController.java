@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mydoctorapp.data.bean.Disease;
 import com.mydoctorapp.data.bean.Medicine;
+import com.mydoctorapp.data.bean.Symptom;
 import com.mydoctorapp.data.repository.MedicineRepository;
 
 @RestController
@@ -29,10 +31,21 @@ public class MedicineRestController {
 	}
 	
 	@GetMapping("/query-medicine")
-	public Medicine getmedicine() {
-		return null;
+	public Medicine getMedicine(@RequestParam(required=true,defaultValue="Dolo-650") String medicineName) {
+		return medicineRepo.findByMedicineName(medicineName);
 	}
 	
+	@GetMapping("/query-medicine-by-name")
+	public List<Medicine> getMedicineByName(@RequestParam(required=true,defaultValue="Dolo-650") String medicineName) {
+		return medicineRepo.findByMedicineNameStartingWith(medicineName);
+	}
+	
+	@GetMapping("/query-medicine-contains-name")
+	public List<Medicine> getMedicineContainsName(@RequestParam(required=true,defaultValue="Dolo-650") String medicineName) {
+			return medicineRepo.findByMedicineNameContaining(medicineName);
+
+	}		
+			
 	@GetMapping("/list-medicine/{id}")
 	public Optional<Medicine> getmedicineById(@PathVariable("id") Integer id) {
 		return medicineRepo.findById(id);
