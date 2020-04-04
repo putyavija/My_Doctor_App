@@ -1,4 +1,10 @@
 insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Chikungunya','High fever,multiple joint pain with fever,headaches,Muscle Pain,Joint Swelling','Disease Description Here',0);
+insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Chikungunya','High fever','Disease Description Here',0);
+insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Chikungunya','multiple joint pain with fever','Disease Description Here',0);
+insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Chikungunya','headaches,Muscle Pain,Joint Swelling','Disease Description Here',0);
+insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Chikungunya','Muscle Pain,Joint Swelling','Disease Description Here',0);
+insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Chikungunya','Joint Swelling','Disease Description Here',0);
+
 insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Typhoid Fever','Typhoid fever,poor appetite,abdominal pain,headaches,weakness,lethargy,Body Pain','Disease Description Here',0);
 insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Anemia','Pale skin (Pallor),Weakness/Fatigue,Shortness of breath,Palpitations','Disease Description Here',0);
 insert into disease(disease_name,symptom,disease_Description,duration_Of_Disease) values('Cervical Spondylosis','Neck Pain,Shoulder pain,Arm pain,Numbnessin hand','Disease Description Here',0);
