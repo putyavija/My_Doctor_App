@@ -29,8 +29,8 @@ public class DiseaseRestController {
 	}
 	
 	@GetMapping("/query-disease")
-	public Disease getDisease() {
-		return null;
+	public Disease getDisease(@RequestParam(required=true,defaultValue="Typhoid Fever") String diseaseName) {
+		return diseaseRepo.findByDiseaseName(diseaseName);
 	}
 	
 	@GetMapping("/list-disease/{id}")
